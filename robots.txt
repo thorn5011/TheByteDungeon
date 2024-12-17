@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /drafts/
+
+Sitemap: {{ site.url }}/sitemap.xml
