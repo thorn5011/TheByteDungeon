@@ -2,7 +2,7 @@ title: TheByteDungeon
 theme: jekyll-theme-hacker
 markdown: kramdown
 css: [assets/css/custom.css]
-url: http://thebytedungeon.thoren.life/
+url: http://thebytedungeon.thoren.life
 domain: thebytedungeon.thoren.life
 description: "TheByteDungeon is a personal tech blog where I document my thoughts, explore technical challenges, and reinforce my knowledge."
 baseurl: ""
