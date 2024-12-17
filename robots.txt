@@ -3,4 +3,4 @@ Allow: /
 
 Disallow: /drafts/
 
-Sitemap: {{ site.url }}/sitemap.xml
+Sitemap: https://thebytedungeon.thoren.life/sitemap.xml
