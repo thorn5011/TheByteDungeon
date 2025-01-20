@@ -16,7 +16,7 @@ tags: [htb, ctf, hardware]
 
 > After gaining access to the enemy's infrastructure, we collected crucial network traffic data from their Modbus network. Our primary objective is to swiftly identify the specific registers containing highly sensitive information and extract that data.
 
-### Provide files
+### Provided files
 
 - `client.py`: Python starting file to communicate with remote modbus service
 - `network_logs.pcapng`: PCAP with modbus traffic with 168 modbus packets
@@ -51,7 +51,7 @@ Let's look at "Write multiple registries".
 
 ## Write multiple registries
 
-[modbus.org](https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf) (page 30) tells this about the request payload structure. Let's include one package seen in our capture (post function code) `10 00 06 00 01`.
+[modbus.org](https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf) (page 30) tells this about the request payload structure. Let's include one package seen in our capture (post function bytes): `10 00 06 00 01`.
 
 |What|Bytes|Example|Our payload|
 |-|-|-|-|
@@ -74,9 +74,9 @@ The write function will add data to "holding" registries so we should use [`read
 
 - We will use `scapy` to parse data from the capture
 - We will find all the "Write multiple registries" functions and collect the addresses
-- We will read those holding registries
+- We will read the holding registries addresses
 
-Code -> [client.py](../assets/ctf_files/htb_intursion/client.py)
+Code -> [client.py](({{site.baseurl}}/assets/ctf_files/htb_intursion/client.py)
 
 ```py
 #!/usr/bin/python3
