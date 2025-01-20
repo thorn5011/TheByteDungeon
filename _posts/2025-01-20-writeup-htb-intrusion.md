@@ -6,8 +6,6 @@ categories: [tech]
 tags: [htb, ctf, hardware]
 ---
 
-# Challenge: Intrusion
-
 - Challenge name: Intrusion
 - CATEGORY: Hardware
 - Solve date: 2025-01-19
