@@ -76,7 +76,8 @@ The write function will add data to "holding" registries so we should use [`read
 - We will find all the "Write multiple registries" functions and collect the addresses
 - We will read the holding registries addresses
 
-Code -> [client.py](({{site.baseurl}}/assets/ctf_files/htb_intursion/client.py)
+[client.py]({{site.baseurl}}/assets/ctf_files/htb_intursion/client.py)  
+[pcap]({{site.baseurl}}/assets/ctf_files/htb_intursion/network_logs.pcapng)
 
 ```py
 #!/usr/bin/python3
