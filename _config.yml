@@ -27,7 +27,7 @@ defaults:
     values:
       is_post: true
       layout: post
-      permalink: /blog/:categories/:title/
+      permalink: /posts/:categories/:title/
   -
     scope:
       type: pages
