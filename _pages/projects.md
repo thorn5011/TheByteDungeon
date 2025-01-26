@@ -16,6 +16,7 @@ permalink: /projects
     {% endif %}
 {% endfor %}
 
+
 ## :flags: CTFs
 
 {% assign sorted_posts = site.posts | sort: 'date' %}
