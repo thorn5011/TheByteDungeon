@@ -14,6 +14,6 @@ tags: [equinor, ctf, hardware]
 
 # Equinor CTF 2024
 
-Uploaded one writeup from the 2024 Equninor on-site CTF. This was a pretty interesting and fun challenge :raised_hands:
+Uploaded one writeup from the 2024 Equinor on-site CTF. This was an interesting and fun challenge :raised_hands:
 
-[SQL 101](https://github.com/ept-team/equinor-ctf-2024/tree/main/writeups/misc/SQL%20101/dragonslayerz)
+:point_right: [SQL 101](https://github.com/ept-team/equinor-ctf-2024/tree/main/writeups/misc/SQL%20101/dragonslayerz)
