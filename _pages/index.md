@@ -7,7 +7,7 @@ permalink: /
 
 {{ site.description }}
 
-## :pencil2: [Blog](blog)
+## :pencil2: [Posts](Posts)
   
 ## :hammer: [Projects](projects)
 
