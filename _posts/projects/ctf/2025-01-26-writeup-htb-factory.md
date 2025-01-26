@@ -29,7 +29,7 @@ This is the way a [modbus](https://en.wikipedia.org/wiki/Modbus) frame looks lik
 | ------------- | ------------- | ------------- | ------------------------------------------- |
 | 1 byte        | 1 byte        | 0 – 252 bytes | 2 bytes: 1 CRC low byte and 1 CRC high byte |
 
-## Coil addresses
+## Coil addresses (from png)
 
 | Addr | Hex    | Coil                |
 | ---- | ------ | ------------------- |
@@ -52,11 +52,6 @@ Water Storage Facility Interface
 3. Exit
 Select: 1
 {"auto_mode": 1, "manual_mode": 0, "stop_out": 0, "stop_in": 0, "low_sensor": 0, "high_sesnor": 0, "in_valve": 1, "out_valve": 0, "flag": "HTB{}"}
-1. Get status of system
-2. Send modbus command
-3. Exit
-Select: 2
-Modbus command:
 ```
 
 Current settings:
@@ -72,7 +67,7 @@ We know that:
 - the slave address is 0x52 (82 in decimal)
 - "laptop-2" take care of the CRC.
 - we need to configure "coils" with a modbus command
-- we want the water to flow out since the sensor are messed up, so we *probably* want to use:
+- we want the water to flow out since the sensors are messed up, so we *probably* want to set:
 	- manual_mode_control -> manual_mode = 1
 	- cutoff_in -> stop_in = 1
 	- out_valve -> out_valve = 1
@@ -80,11 +75,11 @@ We know that:
 
 ## Compile modbus command
 
-#### Function
+### Function
 - Write Single Coil = 5 -> `0x5`
-- 
-#### Data
-Address + on/off
+
+### Data
+Address + on/off:
 - `FF 00` = ON (1)
 - `00 00` = OFF (0)
 
@@ -96,6 +91,7 @@ Address + on/off
 | force_start_out     | 52            | 05            | 0034 + FF00 |
 | out_valve           | 52            | 05            | 0015 + FF00 |
 | cutoff_in           | 52            | 05            | 001a + FF00 |
+
 We will then send these commands:  `52050015FF00`, `520526dbFF00`, `52050034FF00`, `5205001aFF00`
 
 This leave us the these settings (and the flag!):
