@@ -28,7 +28,7 @@ tags:
 
 # What is a "LPC2148 microcontroller"?
 
-This i a microcontroller used in IoT appliances with a CPU based on "ARM7TDMI-S", [Datasheet](https://www.nxp.com/docs/en/data-sheet/LPC2141_42_44_46_48.pdf) for more information.
+This i a microcontroller used in IoT appliances with a CPU based on "ARM7TDMI-S", [datasheet](https://www.nxp.com/docs/en/data-sheet/LPC2141_42_44_46_48.pdf) for more information.
 
 ---
 
