@@ -28,20 +28,20 @@ tags:
 
 # What is a "LPC2148 microcontroller"?
 
-This i a microcontroller used in IoT appliances with a CPU based on "ARM7TDMI-S", [datasheet](https://www.nxp.com/docs/en/data-sheet/LPC2141_42_44_46_48.pdf) for more information.
+This i a microcontroller used in IoT appliances with a CPU based on "ARM7TDMI-S", see [datasheet](https://www.nxp.com/docs/en/data-sheet/LPC2141_42_44_46_48.pdf) for more information.
 
 ---
 
 # What is in the firmware.hex?
 
-Well, we can be pretty sure it is hex.. 182 lines off this:
+Well, we can be pretty sure it is *hex*.. 182 lines off this:
 ```
 :100154002F6C69622F6C642D6C696E75782E736FC9
 :030164002E330037
 ...
 ```
 
-That is ["Intel hex](https://en.wikipedia.org/wiki/Intel_HEX) which [we can convert into an ELF](https://community.st.com/t5/automotive-mcus/how-to-convert-hex-file-to-elf-file/td-p/335527) for us to load into Ghidra.
+That is ["Intel hex"](https://en.wikipedia.org/wiki/Intel_HEX) which [we can convert into an ELF](https://community.st.com/t5/automotive-mcus/how-to-convert-hex-file-to-elf-file/td-p/335527) for us to load into Ghidra.
 
 ## Converting
 
@@ -56,9 +56,9 @@ executable.elf: ELF 32-bit LSB relocatable, ARM, version 1 (ARM), stripped
 
 ---
 
-# Ghidra to the resuce
+# Ghidra to the rescue
 
-Loading the file into Ghidra we can find a bit to relevant code where I renamed some variables and data to make it more readable (I not sure if they all actually makes sense..)
+Loading the file into Ghidra we can find some relevant code where I renamed some variables and data to make it more readable (I **not** sure if they all actually makes sense..)
 
 ```c
   buffer1 = *(undefined4 *)(offset1 + 0x10720);
@@ -89,19 +89,19 @@ Loading the file into Ghidra we can find a bit to relevant code where I renamed 
   return 0;
 ```
 
-There are three for loops which do some data mangling and then transmit data over SPI (Serial Peripheral interface). We should dig into those!
+There are three for loops which do some data mangling and then transmits the data over SPI (Serial Peripheral interface). We should dig into those!
 
 ---
 
 # Extracting the buffers
 
 I am doing this semi-manually by:
-1. Looking up the offset1
-	1. 0x000002E0
+1. Looking up the "offset1"
+	- 0x000002E0
 2. Adding the value
-	1. python3 -c "(print(hex(0x000002E0 + 0x10720)))"
-3. Looking up that memory address (press "G")
-	1. 0x10a00 -> 0x61584E52
+	- `python3 -c "(print(hex(0x000002E0 + 0x10720)))"`
+3. Looking up that memory address (press "G" in Ghidra)
+	- 0x10a00 -> 0x61584E52
 
 I will continue this until I have all the values needed and then print each in full:
 
@@ -110,7 +110,7 @@ combined_value = (buffer1_4_value << 96) | (buffer1_3_value << 64) | (buffer1_2_
 print(combined_value)
 ```
 
-## Printing the flag
+## Getting the flag
 
 - Loop 1: XORs each byte with `0x1a`, <`0x11` times.
 - Loop 2: 1 bit right shift and XOR each byte with `0x39`, < 5 times.
